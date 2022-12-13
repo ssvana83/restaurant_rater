@@ -4,6 +4,7 @@ import NewReviewForm from './NewReviewForm';
 import Review from './Review';
 import ReviewsList from './ReviewsList';
 import Navbar from './NavBar';
+import Header from './Header';
 
 
 
@@ -20,7 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+     <Header />
       <h3>Reviews of Restaurants in your Area</h3>
       <hr />
       <Router>
