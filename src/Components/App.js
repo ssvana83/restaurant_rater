@@ -1,9 +1,9 @@
 import React, { useState, useEffect} from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import NewReviewForm from './Components/NewReviewForm';
-import Review from './Components/Review';
-import ReviewsList from './Components/ReviewsList';
-import Navbar from './Components/Navbar';
+import NewReviewForm from './NewReviewForm';
+import Review from './Review';
+import ReviewsList from './ReviewsList';
+import Navbar from './NavBar';
 
 
 

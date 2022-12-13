@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import StarRatings from 'react-star-ratings';
+
 
 
 function Review({ reviews }) {
@@ -13,7 +13,6 @@ function Review({ reviews }) {
       <div>
 
         <h3>{foundReview.restaurant}</h3>
-        <StarRatings />
         <p>{foundReview.rating} ⭐️</p>
         <p>{foundReview.content}</p>
 
