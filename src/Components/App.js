@@ -6,17 +6,14 @@ import ReviewsList from './ReviewsList';
 import Navbar from './NavBar';
 import Header from './Header';
 
-
-
 function App() {
   const [reviews, setReviews] = useState([]);
-  
-  
 
   useEffect(() => {
-    fetch('https://quelp.onrender.com/reviews')
+    fetch('http://localhost:3001/reviews')
     .then(res => res.json())
-    .then(data => setReviews(data))
+    .then(data => {debugger
+      setReviews(data)})
   }, [])
 
   return (
@@ -33,7 +30,7 @@ function App() {
               </Route>
 
               <Route exact path="/reviews/new">
-                <NewReviewForm />
+                <NewReviewForm  />
               </Route>
 
              <Route exact path="/reviews/:id">

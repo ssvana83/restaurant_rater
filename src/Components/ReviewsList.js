@@ -7,6 +7,7 @@ function ReviewsList({ reviews }) {
   return (
     <div id="">
       {mappedReviews}
+      
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { useHistory } from 'react-router-dom';
 
+
 function ReviewSummary({ review }) {
   const history = useHistory()
 
@@ -11,8 +12,8 @@ function ReviewSummary({ review }) {
     <div>
 
       <p>{review.content.slice(0,30)}...</p>
-      
       <button onClick={handleClick}>Go to this review</button>
+
 
     </div>
   )

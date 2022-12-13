@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const BASE_URL= "https://quelp.onrender.com/reviews"
+const BASE_URL= "http://localhost:3001/reviews"
 
 const initialNewReview = {
   restaurant: "",
@@ -44,7 +44,7 @@ function NewReviewForm({ setReviews }) {
         <button type="submit">Add My Review</button>
       </form>
     </div>
-  )
+  );
 }
 
 export default NewReviewForm;
