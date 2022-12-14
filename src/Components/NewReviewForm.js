@@ -4,7 +4,7 @@ const BASE_URL= "http://localhost:3001/reviews"
 
 const initialNewReview = {
   restaurant: "",
-  review: "",
+  comment: "",
   rating: "",
   image: "",
 }
@@ -39,7 +39,7 @@ function NewReviewForm({ setReviews }) {
       <h2>New Review</h2>
       <form onSubmit={handleSubmit}>
         <input type="text" name="name" placeholder="Restaurant name" onChange={handleChange}/>
-        <input type="text" name="review" placeholder="My review" onChange={handleChange}/>
+        <input type="text" name="comment" placeholder="My review" onChange={handleChange}/>
         <input type="" name="stars" placeholder="how many stars" onChange={handleChange}/>
         <button type="submit">Add My Review</button>
       </form>

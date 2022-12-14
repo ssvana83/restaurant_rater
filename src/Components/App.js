@@ -10,7 +10,7 @@ function App() {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/reviews')
+    fetch("http://localhost:3001/reviews")
     .then(res => res.json())
     .then(data => {debugger
       setReviews(data)})
