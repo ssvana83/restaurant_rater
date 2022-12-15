@@ -1,50 +1,60 @@
 import React, { useState } from 'react';
 
-const BASE_URL= "http://localhost:3001/reviews"
 
-const initialNewReview = {
-  restaurant: "",
-  comment: "",
-  rating: "",
-  image: "",
-}
+const BASE_URL = "http://localhost:3001/reviews"
 
-function NewReviewForm({ setReviews }) {
-  const [newReview, setNewReview] = useState({initialNewReview});
 
-  function handleChange(e) {
-    setNewReview((currentNewReviewState) => ({
-      ...currentNewReviewState,
-      [e.target.name]: e.target.value,
-    }));
-  }
+function NewReviewForm(props) {
+
+  const [formData, setFormData] = useState({
+    restaurant: '',
+    comment: '',
+    rating: '',
+    image: ''
+  })
 
   function handleSubmit(e) {
-    e.preventDefault(0);
-    fetch(BASE_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application.json"
-      },
-      body: JSON.stringify(newReview)
-    })
-    .then((resp) => resp.json())
-    .then(data => setReviews((currentReviews) => [...currentReviews, data]));
-
-    setNewReview(initialNewReview);
+    e.preventDefault()
   }
+
+
 
   return (
     <div className="new-review-form">
       <h2>New Review</h2>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="name" placeholder="Restaurant name" onChange={handleChange}/>
-        <input type="text" name="comment" placeholder="My review" onChange={handleChange}/>
-        <input type="" name="stars" placeholder="how many stars" onChange={handleChange}/>
+        <input type="text" 
+          name="restaurant" 
+          placeholder="Restaurant name" 
+          onChange={e => setFormData({...formData, restaurant: e.target.value})} 
+          value={formData.restaurant} />
+
+        <textarea type="text" 
+          name="comment" 
+          placeholder="My review" 
+          onChange={e => setFormData({...formData, comment: e.target.value})} 
+          value={formData.comment} />
+
+        <input type="number" 
+          name="rating" 
+          placeholder="rating" 
+          onChange={e => setFormData({...formData, rating: e.target.value})} 
+          max="5" 
+          min="0" 
+          value={formData.rating} />
+
+        <input type="" 
+          name="image" 
+          placeholder="image" 
+          onChange={e => setFormData({...formData, image: e.target.value})} 
+          value={formData.image} 
+        />
+
         <button type="submit">Add My Review</button>
       </form>
     </div>
   );
+
 }
 
 export default NewReviewForm;

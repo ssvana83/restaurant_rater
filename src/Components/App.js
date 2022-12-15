@@ -12,8 +12,7 @@ function App() {
   useEffect(() => {
     fetch("http://localhost:3001/reviews")
     .then(res => res.json())
-    .then(data => {debugger
-      setReviews(data)})
+    .then(data => setReviews(data))
   }, [])
 
   return (
@@ -30,7 +29,7 @@ function App() {
               </Route>
 
               <Route exact path="/reviews/new">
-                <NewReviewForm  />
+                <NewReviewForm />
               </Route>
 
              <Route exact path="/reviews/:id">
