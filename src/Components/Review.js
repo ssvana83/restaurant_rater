@@ -9,12 +9,18 @@ function Review({ reviews }) {
 
   if (foundReview) {
 
+    function handleClick() {
+     
+    }
+
     return (
       <div>
-
+        <h2>Review</h2>
+        <hr/>
         <h3>{foundReview.restaurant}</h3>
         <p>{foundReview.rating} ⭐️</p>
         <p>{foundReview.comment}</p>
+        <button onClick={handleClick}>View photos</button>
 
       </div>
     )

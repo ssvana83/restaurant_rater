@@ -15,6 +15,18 @@ function App() {
     .then(data => setReviews(data))
   }, [])
 
+  function addReview(newReview) {
+    fetch('http://localhost3001/reviews', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json',
+    },
+      body: JSON.stringify(newReview)
+    })
+      .then(r => r.json())
+      .then(data => setReviews)
+        setReviews([...reviews, newReview])
+  }
+
   return (
     <div className="App">
      <Header />
@@ -29,7 +41,7 @@ function App() {
               </Route>
 
               <Route exact path="/reviews/new">
-                <NewReviewForm />
+                <NewReviewForm addReview={addReview}/>
               </Route>
 
              <Route exact path="/reviews/:id">

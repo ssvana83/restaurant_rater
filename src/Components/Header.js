@@ -5,7 +5,7 @@ function Header() {
 
   return (
     <header>
-      <h1>Quelp
+      <h1>Restaurant Rater
         <span className="logo" role="img">
           🍜
         </span>

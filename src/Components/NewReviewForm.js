@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 
 
-const BASE_URL = "http://localhost:3001/reviews"
-
-
-function NewReviewForm(props) {
-
+function NewReviewForm({ addReview }) {
   const [formData, setFormData] = useState({
     restaurant: '',
     comment: '',
@@ -15,13 +11,13 @@ function NewReviewForm(props) {
 
   function handleSubmit(e) {
     e.preventDefault()
+    addReview(formData)
   }
-
-
 
   return (
     <div className="new-review-form">
       <h2>New Review</h2>
+      <hr />
       <form onSubmit={handleSubmit}>
         <input type="text" 
           name="restaurant" 
@@ -49,12 +45,10 @@ function NewReviewForm(props) {
           onChange={e => setFormData({...formData, image: e.target.value})} 
           value={formData.image} 
         />
-
         <button type="submit">Add My Review</button>
       </form>
     </div>
   );
-
 }
 
 export default NewReviewForm;
