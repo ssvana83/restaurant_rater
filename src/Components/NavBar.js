@@ -15,9 +15,9 @@ function Navbar() {
   return (
     <div>
 
-      <NavLink to="/" style={linkStyles}>All Reviews</NavLink>
-      <NavLink to="reviews/new" style={linkStyles}>Create a New Review</NavLink>
-      <NavLink to="reviews/:id" style={linkStyles}>Reviews</NavLink>
+      <NavLink to="/" style={linkStyles} exact activeStyle={{background: 'darkblue'}} >All Reviews</NavLink>
+      <NavLink to="reviews/new" style={linkStyles} exact activeStyle={{background: 'darkblue'}} >Create a New Review</NavLink>
+      <NavLink to="reviews/:id" style={linkStyles} exact activeStyle={{background: 'darkblue'}} >Reviews</NavLink>
       
     </div>
   );

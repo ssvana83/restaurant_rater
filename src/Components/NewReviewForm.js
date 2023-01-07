@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 
 function NewReviewForm({ addReview }) {
+  const history = useHistory()
   const [formData, setFormData] = useState({
     restaurant: '',
     comment: '',
@@ -12,6 +14,7 @@ function NewReviewForm({ addReview }) {
   function handleSubmit(e) {
     e.preventDefault()
     addReview(formData)
+    history.push(`/`)
   }
 
   return (
