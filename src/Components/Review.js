@@ -24,7 +24,7 @@ function Review({ reviews }) {
         <h3>{foundReview.restaurant}</h3>
         <p>{foundReview.rating} ⭐️</p>
         <p>{foundReview.comment}</p>
-        <img id="restaurantImage"></img>
+        <img alt="" id="restaurantImage"></img>
         <button id="imageButton" onClick={handleClick}>View photos</button>
 
       </div>

@@ -10,11 +10,8 @@ function ReviewSummary({ review }) {
 
   return (
     <div>
-
       <p>{review.comment.slice(0,30)}...</p>
       <button onClick={handleClick}>Go to this review</button>
-
-
     </div>
   )
 
