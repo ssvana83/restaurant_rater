@@ -15,6 +15,8 @@ function App() {
     .then(data => setReviews(data))
   }, [])
 
+  
+
   function addReview(newReview) {
     fetch('http://localhost3001/reviews', {
       method: 'POST',

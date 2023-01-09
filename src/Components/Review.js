@@ -17,6 +17,10 @@ function Review({ reviews }) {
       document.getElementById("imageButton").style.display= 'none'
     }
 
+    function handleEditReviewClick() {
+
+    }
+
     return (
       <div>
         <h2>Review</h2>
@@ -26,6 +30,9 @@ function Review({ reviews }) {
         <p>{foundReview.comment}</p>
         <img alt="" id="restaurantImage"></img>
         <button id="imageButton" onClick={handleClick}>View photos</button>
+        <br />
+        <br />
+        <button id="editButton" onClick={handleEditReviewClick} >Edit Review</button>
 
       </div>
     )

@@ -15,7 +15,7 @@ function NewReviewForm({ addReview }) {
   })
 
   function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
     addReview(formData)
     history.push(`/`)
   }
