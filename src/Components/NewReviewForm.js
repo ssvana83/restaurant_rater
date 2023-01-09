@@ -1,18 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Review from './Review';
 import '../App.css'
+import ReviewsList from './ReviewsList';
 
 
 
 function NewReviewForm({ addReview }) {
   const history = useHistory()
+  const [reviews, setReviews] = useState([]);
   const [formData, setFormData] = useState({
     restaurant: '',
     comment: '',
     rating: '',
     image: ''
   })
+
+  useEffect(() => {
+    fetch("http://localhost:3001/reviews")
+    .then(res => res.json())
+    .then(data => setReviews(data))
+  }, [])
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -24,7 +32,8 @@ function NewReviewForm({ addReview }) {
         body: JSON.stringify(formData)
       })
         .then(r => r.json())
-        .then(data => console.log(data))
+        .then(data => setReviews)
+          setReviews([...reviews, formData])
     history.push(`/`)
   }
 

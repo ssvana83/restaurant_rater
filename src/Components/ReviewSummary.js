@@ -32,7 +32,6 @@ function ReviewSummary({ review }) {
     history.push(`/`)
   }
   
-
   return (
     <div>
       <p>{review.comment.slice(0,30)}...</p>
@@ -40,8 +39,6 @@ function ReviewSummary({ review }) {
       <button id="deleteReview" onClick={handleDelete} >Delete Review</button>
     </div>
   )
-
-
 }
 
 export default ReviewSummary;
