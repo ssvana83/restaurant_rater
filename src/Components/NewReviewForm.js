@@ -16,7 +16,15 @@ function NewReviewForm({ addReview }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    addReview(formData)
+    console.log(formData);
+      fetch('http://localhost:3001/reviews', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json',
+      },
+        body: JSON.stringify(formData)
+      })
+        .then(r => r.json())
+        .then(data => console.log(data))
     history.push(`/`)
   }
 
