@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import Review from './Review';
+// import Review from './Review';
 import '../App.css'
-import ReviewsList from './ReviewsList';
-
+// import ReviewsList from './ReviewsList';
 
 
 function NewReviewForm({ addReview }) {
@@ -15,6 +14,7 @@ function NewReviewForm({ addReview }) {
     rating: '',
     image: ''
   })
+  
 
   useEffect(() => {
     fetch("http://localhost:3001/reviews")
@@ -22,6 +22,7 @@ function NewReviewForm({ addReview }) {
     .then(data => setReviews(data))
   }, [])
 
+  
   function handleSubmit(e) {
     e.preventDefault();
     console.log(formData);
@@ -34,6 +35,7 @@ function NewReviewForm({ addReview }) {
         .then(r => r.json())
         .then(data => setReviews)
           setReviews([...reviews, formData])
+          // addReview(formData)
     history.push(`/`)
   }
 
@@ -42,21 +44,23 @@ function NewReviewForm({ addReview }) {
       <h2>New Review</h2>
       <hr />
       
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} >  
       <fieldset>
         <label>Restaurant: </label>
         <input type="text" 
           name="restaurant" 
           placeholder="Restaurant name" 
           onChange={e => setFormData({...formData, restaurant: e.target.value})} 
-          value={formData.restaurant} /><br/>
+          value={formData.restaurant} 
+        /><br/>
 
         <label>Comment: </label>
         <textarea type="text" 
           name="comment" 
           placeholder="My review" 
           onChange={e => setFormData({...formData, comment: e.target.value})} 
-          value={formData.comment} /><br/>
+          value={formData.comment} 
+        /><br/>
 
 
         <label>Rating: </label>
@@ -66,7 +70,8 @@ function NewReviewForm({ addReview }) {
           onChange={e => setFormData({...formData, rating: e.target.value})} 
           max="5" 
           min="0" 
-          value={formData.rating} /><br/>
+          value={formData.rating} 
+        /><br/>
 
 
         <label>Image: </label>
@@ -86,3 +91,5 @@ function NewReviewForm({ addReview }) {
 }
 
 export default NewReviewForm;
+
+

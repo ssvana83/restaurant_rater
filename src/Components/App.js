@@ -1,5 +1,7 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect} from 'react'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
+
 import NewReviewForm from './NewReviewForm';
 import Review from './Review';
 import ReviewsList from './ReviewsList';
@@ -8,13 +10,14 @@ import Header from './Header';
 
 function App() {
   const [reviews, setReviews] = useState([]);
-
+  
   useEffect(() => {
     fetch("http://localhost:3001/reviews")
     .then(res => res.json())
     .then(data => setReviews(data))
   }, [])
 
+  
   
   function addReview(newReview) {
     fetch('http://localhost3001/reviews', {
@@ -27,6 +30,7 @@ function App() {
       .then(data => setReviews)
         setReviews([...reviews, newReview])
   }
+
 
   return (
     <div className="App">
@@ -55,6 +59,9 @@ function App() {
 }
 
 export default App;
+
+
+
 
 
 

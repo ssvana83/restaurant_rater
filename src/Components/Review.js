@@ -1,15 +1,13 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
-
+// import { useHistory } from 'react-router-dom';
 
 
 function Review({ reviews }) {
-  const history = useHistory()
+  // const history = useHistory()
   const params = useParams()
   const foundReview = reviews.find(review => review.id === parseInt(params.id))
   
-
   if (foundReview) {
 
     function handleClick() {
@@ -20,6 +18,7 @@ function Review({ reviews }) {
     function handleEditReviewClick() {
 
     }
+
 
     return (
       <div>
@@ -33,8 +32,6 @@ function Review({ reviews }) {
         <br />
         <br />
         <button id="editButton" onClick={handleEditReviewClick} >Edit Review</button>
-        
-
       </div>
     )
   } else {

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 function ReviewSummary({ review }) {
   const history = useHistory()
-  // const [reviewItem, setReviewItem]= useState([]);
+  const [reviewItem, setReviewItem]= useState([]);
 
 
   function handleClick() {

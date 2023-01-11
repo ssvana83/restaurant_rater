@@ -36,11 +36,11 @@
       "rating": "4 stars"
     },
     {
-      "id": 7,
-      "restaurant": "ABC",
+      "restaurant": "mama mia",
+      "comment": "",
+      "rating": "",
       "image": "",
-      "comment": "The food is great, but its worth the trip for the jalepeno margarita!",
-      "rating": "5 stars"
+      "id": 7
     }
   ]
 }
