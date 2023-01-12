@@ -1,10 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-// import { useHistory } from 'react-router-dom';
 
 
 function Review({ reviews }) {
-  // const history = useHistory()
+ 
   const params = useParams()
   const foundReview = reviews.find(review => review.id === parseInt(params.id))
   

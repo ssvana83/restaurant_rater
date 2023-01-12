@@ -14,17 +14,7 @@ function NewReviewForm({ addReview }) {
     rating: '',
     image: ''
   })
-
-
-  //callback function to manage the onChange behavior for any of controlled inputs is written inline in return below;
-//   function manageFormData(e) {
-//     //capture name and value from target of event;
-//     let targetRestaurant = e.target.restaurant;
-//     let targetComment = e.target.comment;
-//     let targetRating = e.target.rating;
-//     let targetImage = e.target.image;
   
-
   function handleChange(e) {
     setFormData({
       ...formData,
@@ -36,7 +26,6 @@ function NewReviewForm({ addReview }) {
   function handleSubmit(e) {
     //prevent default form submission behavior;
     e.preventDefault()
-    
     fetch('http://localhost:3001/reviews', {
       method: 'POST',
       headers: {'Content-Type': 'application/json',

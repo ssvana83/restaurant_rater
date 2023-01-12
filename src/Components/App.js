@@ -8,6 +8,8 @@ import Navbar from './NavBar';
 import Header from './Header';
 import ReviewSummary from './ReviewSummary';
 
+
+
 function App() {
   const [reviews, setReviews] = useState([]);
   const history = useHistory()
@@ -18,7 +20,6 @@ function App() {
     .then(data => setReviews(data))
   }, [])
 
-  
   function addReview(newReview) {
         setReviews([...reviews, newReview])
   }
@@ -26,10 +27,6 @@ function App() {
   function handleDelete(id) {
     const newReviews = reviews.filter((review) => review.id !== id)
     setReviews(newReviews)
-  }
-
-  function testFunction() {
-    console.log("worked")
   }
 
 
