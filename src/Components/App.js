@@ -28,6 +28,10 @@ function App() {
     setReviews(newReviews)
   }
 
+  function testFunction() {
+    console.log("worked")
+  }
+
 
   return (
     <div className="App">
