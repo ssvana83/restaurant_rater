@@ -1,15 +1,16 @@
 import React, { useState, useEffect} from 'react'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-
-
+import { useHistory } from 'react-router-dom'
 import NewReviewForm from './NewReviewForm';
 import Review from './Review';
 import ReviewsList from './ReviewsList';
 import Navbar from './NavBar';
 import Header from './Header';
+import ReviewSummary from './ReviewSummary';
 
 function App() {
   const [reviews, setReviews] = useState([]);
+  const history = useHistory()
   
   useEffect(() => {
     fetch("http://localhost:3001/reviews")
@@ -18,17 +19,13 @@ function App() {
   }, [])
 
   
-  
   function addReview(newReview) {
-    fetch('http://localhost3001/reviews', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json',
-    },
-      body: JSON.stringify(newReview)
-    })
-      .then(r => r.json())
-      .then(data => setReviews)
         setReviews([...reviews, newReview])
+  }
+
+  function handleDelete(id) {
+    const newReviews = reviews.filter((review) => review.id !== id)
+    setReviews(newReviews)
   }
 
 
@@ -42,10 +39,10 @@ function App() {
           <Switch>
           
               <Route exact path="/">
-                <ReviewsList reviews={reviews} />
+                <ReviewsList reviews={reviews} addReview= {addReview} handleDelete={handleDelete} />
               </Route>
 
-              <Route exact path="/reviews/new">
+              <Route exact path="/newReview">
                 <NewReviewForm addReview={addReview}/>
               </Route>
 

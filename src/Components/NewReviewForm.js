@@ -1,42 +1,62 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-// import Review from './Review';
 import '../App.css'
-// import ReviewsList from './ReviewsList';
 
 
 function NewReviewForm({ addReview }) {
-  const history = useHistory()
-  const [reviews, setReviews] = useState([]);
+
+  const history = useHistory();
+  
+  //State of formData created to manage all of form data in one state object;
   const [formData, setFormData] = useState({
     restaurant: '',
     comment: '',
     rating: '',
     image: ''
   })
+
+
+  //callback function to manage the onChange behavior for any of controlled inputs is written inline in return below;
+//   function manageFormData(e) {
+//     //capture name and value from target of event;
+//     let targetRestaurant = e.target.restaurant;
+//     let targetComment = e.target.comment;
+//     let targetRating = e.target.rating;
+//     let targetImage = e.target.image;
   
 
-  useEffect(() => {
-    fetch("http://localhost:3001/reviews")
-    .then(res => res.json())
-    .then(data => setReviews(data))
-  }, [])
+  function handleChange(e) {
+    setFormData({
+      ...formData,
+      [e.target.name] : e.target.value
+    })
+  }
 
-  
+  //callback function to handle onSubmit behavior of controlled form;
   function handleSubmit(e) {
-    e.preventDefault();
-    console.log(formData);
-      fetch('http://localhost:3001/reviews', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json',
-      },
-        body: JSON.stringify(formData)
+    //prevent default form submission behavior;
+    e.preventDefault()
+    
+    fetch('http://localhost:3001/reviews', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json',
+    },
+      body: JSON.stringify(formData)
+    })
+      .then(r => r.json())
+      .then(data => {
+       addReview(data)
+        history.push('/')
       })
-        .then(r => r.json())
-        .then(data => setReviews)
-          setReviews([...reviews, formData])
-          // addReview(formData)
-    history.push(`/`)
+
+    //clear out form input after submission;
+    setFormData({
+      ...formData,
+      restaurant: "",
+      comment: "",
+      rating: "",
+      image: ""
+    });
   }
 
   return (
@@ -50,7 +70,7 @@ function NewReviewForm({ addReview }) {
         <input type="text" 
           name="restaurant" 
           placeholder="Restaurant name" 
-          onChange={e => setFormData({...formData, restaurant: e.target.value})} 
+          onChange={handleChange} 
           value={formData.restaurant} 
         /><br/>
 
@@ -58,7 +78,7 @@ function NewReviewForm({ addReview }) {
         <textarea type="text" 
           name="comment" 
           placeholder="My review" 
-          onChange={e => setFormData({...formData, comment: e.target.value})} 
+          onChange={handleChange} 
           value={formData.comment} 
         /><br/>
 
@@ -67,7 +87,7 @@ function NewReviewForm({ addReview }) {
         <input type="number" 
           name="rating" 
           placeholder="#" 
-          onChange={e => setFormData({...formData, rating: e.target.value})} 
+          onChange={handleChange} 
           max="5" 
           min="0" 
           value={formData.rating} 
@@ -78,7 +98,7 @@ function NewReviewForm({ addReview }) {
         <input type="" 
           name="image" 
           placeholder="image" 
-          onChange={e => setFormData({...formData, image: e.target.value})} 
+          onChange={handleChange} 
           value={formData.image} 
         /><br/>
         </fieldset>

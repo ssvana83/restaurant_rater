@@ -2,9 +2,9 @@ import React from 'react';
 import ReviewSummary from './ReviewSummary';
 
 
-function ReviewsList({ reviews }) {
+function ReviewsList({ reviews, handleDelete }) {
 
-  const reviewsList = reviews.map(review => <ReviewSummary key={review.id} review={review} />)
+  const reviewsList = reviews.map(review => <ReviewSummary handleDelete={handleDelete} key={review.id} review={review} />)
 
   return (
     <div id="">
