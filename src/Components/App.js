@@ -7,8 +7,7 @@ import ReviewsList from './ReviewsList';
 import Navbar from './NavBar';
 import Header from './Header';
 import ReviewSummary from './ReviewSummary';
-
-
+import Homepage from './Homepage';
 
 function App() {
   const [reviews, setReviews] = useState([]);
@@ -38,7 +37,11 @@ function App() {
       <Router>
           <Navbar />
           <Switch>
-          
+
+              <Route exact path ="/home">
+                <Homepage />
+              </Route>
+
               <Route exact path="/">
                 <ReviewsList reviews={reviews} addReview= {addReview} handleDelete={handleDelete} />
               </Route>
