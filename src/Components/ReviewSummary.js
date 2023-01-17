@@ -1,10 +1,11 @@
 import { useHistory } from 'react-router-dom';
-import React, { useState } from 'react';
+import React from 'react';
+
+
 
 
 function ReviewSummary({ review, handleDelete }) {
   const history = useHistory()
-
 
   function handleClick() {
     history.push(`/reviews/${review.id}`)
@@ -22,12 +23,13 @@ function ReviewSummary({ review, handleDelete }) {
   }
   
   return (
-    <div>
+    <div className="review-card">
       <p>{review.comment.slice(0,30)}...</p>
       <button onClick={handleClick}>Go to this review</button>
       <button id="deleteReview" onClick={handleDeleteReview} >Delete Review</button>
     </div>
   )
 }
+
 
 export default ReviewSummary;

@@ -1,17 +1,15 @@
 import React, { useState, useEffect} from 'react'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import { useHistory } from 'react-router-dom'
 import NewReviewForm from './NewReviewForm';
 import Review from './Review';
 import ReviewsList from './ReviewsList';
 import Navbar from './NavBar';
 import Header from './Header';
-import ReviewSummary from './ReviewSummary';
 import Homepage from './Homepage';
+
 
 function App() {
   const [reviews, setReviews] = useState([]);
-  const history = useHistory()
   
   useEffect(() => {
     fetch("http://localhost:3001/reviews")
@@ -53,6 +51,7 @@ function App() {
              <Route exact path="/reviews/:id">
                 <Review reviews={reviews} />
             </Route>
+
           </Switch>
       </Router>
     </div>

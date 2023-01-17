@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 
 function Review({ reviews }) {
+
  
   const params = useParams()
   const foundReview = reviews.find(review => review.id === parseInt(params.id))
@@ -20,13 +21,14 @@ function Review({ reviews }) {
 
 
     return (
-      <div>
+      <div className='review-id'>
         <h2>Review</h2>
         <hr/>
         <h3>{foundReview.restaurant}</h3>
         <p>{foundReview.rating} ⭐️</p>
         <p>{foundReview.comment}</p>
         <img alt="" id="restaurantImage"></img>
+        <br />
         <button id="imageButton" onClick={handleClick}>View photos</button>
         <br />
         <br />
