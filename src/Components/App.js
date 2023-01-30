@@ -54,6 +54,8 @@ function App() {
 
           </Switch>
       </Router>
+      <hr/>
+      <footer>Restaurant Rater 105 N. 9th Ave, New York, NY 67913</footer>
     </div>
   );
 }
