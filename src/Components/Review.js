@@ -32,7 +32,7 @@ function Review({ reviews }) {
         <button id="imageButton" onClick={handleClick}>View photos</button>
         <br />
         <br />
-        <button id="editButton" onClick={handleEditReviewClick} >Edit Review</button>
+        {/* <button id="editButton" onClick={handleEditReviewClick} >Edit Review</button> */}
       </div>
     )
   } else {
