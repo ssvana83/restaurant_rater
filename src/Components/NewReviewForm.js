@@ -91,7 +91,8 @@ function NewReviewForm({ addReview }) {
           value={formData.image} 
         /><br/>
         </fieldset>
-    
+        <br>
+        </br>
         <button type="submit">Add My Review</button><br/>
       </form>
       
